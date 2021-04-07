@@ -1,0 +1,23 @@
+// http://www.ksh.hu/nepszamlalas/docs/tablak/vkerulet/oevk.pdf
+export default [
+	{ megyeKod: 1, megyeNeve: 'Budapest', nrOfOevk: 18 },
+	{ megyeKod: 2, megyeNeve: 'Baranya', nrOfOevk: 4 },
+	{ megyeKod: 3, megyeNeve: 'Bács-Kiskun', nrOfOevk: 6 },
+	{ megyeKod: 4, megyeNeve: 'Békés', nrOfOevk: 4 },
+	{ megyeKod: 5, megyeNeve: 'Borsod-Abaúj-Zemplén', nrOfOevk: 7 },
+	{ megyeKod: 6, megyeNeve: 'Csongrád', nrOfOevk: 4 },
+	{ megyeKod: 7, megyeNeve: 'Fejér', nrOfOevk: 5 },
+	{ megyeKod: 8, megyeNeve: 'Győr-Moson-Sopron', nrOfOevk: 5 },
+	{ megyeKod: 9, megyeNeve: 'Hajdú-Bihar', nrOfOevk: 6 },
+	{ megyeKod: 10, megyeNeve: 'Heves', nrOfOevk: 3 },
+	{ megyeKod: 11, megyeNeve: 'Jász-Nagykun-Szolnok', nrOfOevk: 4 },
+	{ megyeKod: 12, megyeNeve: 'Komárom-Esztergom', nrOfOevk: 3 },
+	{ megyeKod: 13, megyeNeve: 'Nógrád', nrOfOevk: 2 },
+	{ megyeKod: 14, megyeNeve: 'Pest', nrOfOevk: 12 },
+	{ megyeKod: 15, megyeNeve: 'Somogy', nrOfOevk: 4 },
+	{ megyeKod: 16, megyeNeve: 'Szabolcs-Szatmár-Bereg', nrOfOevk: 6 },
+	{ megyeKod: 17, megyeNeve: 'Tolna', nrOfOevk: 3 },
+	{ megyeKod: 18, megyeNeve: 'Vas', nrOfOevk: 3 },
+	{ megyeKod: 19, megyeNeve: 'Veszprém', nrOfOevk: 4 },
+	{ megyeKod: 20, megyeNeve: 'Zala ', nrOfOevk: 3 },
+]

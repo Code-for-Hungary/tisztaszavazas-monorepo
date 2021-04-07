@@ -1,0 +1,12 @@
+https://www.valasztas.hu/szavazokori-eredmenyek?
+p_p_id=ogyszavazokorieredmenyek_WAR_nvinvrportlet&
+p_p_lifecycle=2&
+p_p_state=maximized&
+p_p_mode=view&
+p_p_resource_id=resourceIdGetElectionMapData&
+p_p_cacheability=cacheLevelPage&
+_ogyszavazokorieredmenyek_WAR_nvinvrportlet_telepulesKod=257&
+_ogyszavazokorieredmenyek_WAR_nvinvrportlet_megyeKod=20&
+_ogyszavazokorieredmenyek_WAR_nvinvrportlet_vlId=244&
+_ogyszavazokorieredmenyek_WAR_nvinvrportlet_szavkorSorszam=1&
+_ogyszavazokorieredmenyek_WAR_nvinvrportlet_vltId=556&

@@ -1,0 +1,13 @@
+https://www.valasztas.hu
+/orszaggyulesi-valasztasok1/borsod-abauj-zemplen-6.-oevk-20201011
+?p_p_id=iogyszavazokorieredmenyek_WAR_nvinvrportlet
+&p_p_lifecycle=2
+&p_p_state=maximized
+&p_p_mode=view
+&p_p_resource_id=resourceIdGetElectionMapData
+&p_p_cacheability=cacheLevelPage
+&_iogyszavazokorieredmenyek_WAR_nvinvrportlet_telepulesKod=339
+&_iogyszavazokorieredmenyek_WAR_nvinvrportlet_megyeKod=05
+&_iogyszavazokorieredmenyek_WAR_nvinvrportlet_vlId=321
+&_iogyszavazokorieredmenyek_WAR_nvinvrportlet_szavkorSorszam=1
+&_iogyszavazokorieredmenyek_WAR_nvinvrportlet_vltId=836

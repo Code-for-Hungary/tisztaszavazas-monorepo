@@ -1,0 +1,15 @@
+from testScript import main
+
+main("getUtcaLista", "htmls/for-test/bp-2-25.htm", 22)
+main("getUtcaLista", "htmls/for-test/andrassy.htm", 0)
+main("getUtcaLista", "htmls/for-test/budapest-i-16.html", 10)
+main("getUtcaLista", "htmls/for-test/budapest-i.html", 4)
+main("getUtcaLista", "htmls/for-test/irsapuszta.html", 0)
+main("getUtcaLista", "htmls/for-test/budapest-ii-25.html", 0)
+main("getUtcaLista", "htmls/for-test/budapest-ii-25.html", 9)
+main("getUtcaLista", "htmls/for-test/budapest-i-5.html", 11)
+main("getUtcaLista", "htmls/for-test/zalalovo-6.html", 0)
+main("getUtcaLista", "htmls/for-test/budapest-x-1.html", 0)
+main("getUtcaLista", "htmls/for-test/budapest-x-1.html", 2)
+main("getUtcaLista", "htmls/for-test/bp-iii-21.html", 1)
+main("getUtcaLista", "htmls/for-test/bp-iii-21.html", 3)

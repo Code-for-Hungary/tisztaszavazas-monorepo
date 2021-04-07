@@ -1,0 +1,51 @@
+{
+  "name": "tisztaszavazas-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js --exec babel-node",
+    "start": "babel-node server.js",
+    "heroku-postbuild": "npm install",
+    "crawlSzkUrls": "babel-node ./scripts/crawlSzkUrls.js",
+    "initSzk": "babel-node scripts/initSzks.js",
+    "_kozigEgysetToRef": "babel-node scripts/_kozigEgysetToRef",
+    "startCrawl": "babel-node ./scripts/startCrawl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/madhums/node-express-mongoose-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madhums/node-express-mongoose-demo/issues"
+  },
+  "homepage": "https://github.com/madhums/node-express-mongoose-demo#readme",
+  "dependencies": {
+    "apidoc": "^0.20.1",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.4",
+    "nodemon": "^1.19.1",
+    "papaparse": "^5.3.0",
+    "path": "^0.12.7",
+    "python-shell": "^1.0.8",
+    "requestify": "^0.2.5",
+    "showdown": "^1.9.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "babel": "6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "1.6.0"
+  }
+}

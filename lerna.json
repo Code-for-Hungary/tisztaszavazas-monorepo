@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "tisztaszavazas-api",
+    "tisztaszavazas-parser",
+    "tisztaszavazas-scraper"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+.DS_Store
+htmls/
+__pycache__
+env/
+parser.pyc
