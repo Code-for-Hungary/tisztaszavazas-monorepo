@@ -9,30 +9,7 @@ import logging
 
 # pylint: disable=locally-disabled, anomalous-backslash-in-string
 
-hrsz_regex = [
-  # https://www.geotronic.hu/informacio/helyrajzi_szam
-
-  "\d{4,}"          # number with at lease 4 digits
-
-  # "alátörés"
-  "(?:\/\d{1,3})"   # a slash follwed by a 1-3 digits number
-  "{0,3}?"          # zero of four times
-
-  # building and flat
-  "(?:"             # optional non-captureing group starts
-    "\/[A-Z]"       # slash followed by a single capital character
-    "(?:"           # optional non-captureing group starts
-      "\/\d{1,3}"   # slash followed by an 1-3 digit number
-    ")?"            # optional non-capturing group ends
-  ")?"              # optional non-capturing group ends
-]
-
-hazszam_regex = [
-  "\d{1,4}",      # any number with 1-4 digits (avoid matching with "/"-less hrsz)
-  "\\b"      # end of word, avoid matching first n digits of a long number
-]
-
-regex_parts = [
+regex = re.compile(
   "^"             # start of line
   # Get rid of whitespace before address
   "(?:"  			    # non-capturing group start
@@ -53,16 +30,33 @@ regex_parts = [
 
       # OR group for HRSZ or number
       "(?:" 			  # non-capturing group start
-        "(?P<from_hrsz>",   # named capturing group
-          *hrsz_regex,
+        "(?P<from_hrsz>"   # named capturing group
+          #hrsz_regex starts,
+          "\d{4,}"          # number with at lease 4 digits
+
+          # "alátörés"
+          "(?:\/\d{1,3})"   # a slash follwed by a 1-3 digits number
+          "{0,3}?"          # zero of four times
+
+          # building and flat
+          "(?:"             # optional non-captureing group starts
+            "\/[A-Z]"       # slash followed by a single capital character
+            "(?:"           # optional non-captureing group starts
+              "\/\d{1,3}"   # slash followed by an 1-3 digit number
+            ")?"            # optional non-capturing group ends
+          ")?"              # optional non-capturing group ends          
+          #hrsz_regex ends,
         ")"
         "|"      
         # normal house number
         "(?:" 			# non-capturing group start
 
           # Capture starting house number 
-          "(?P<kezdoHazszam>",         # named capturing group starts
-            *hazszam_regex,
+          "(?P<kezdoHazszam>"         # named capturing group starts
+            #hazszam_regex starts
+            "\d{1,4}"      # any number with 1-4 digits (avoid matching with "/"-less hrsz)
+            "\\b"      # end of word, avoid matching first n digits of a long number
+            #hazszam_regex ends
           ")"         # capturing group ends
 
           # Any character after first digit and before dash
@@ -79,16 +73,30 @@ regex_parts = [
       ")"         # non-capturing group ends
 
      
-      "(?:",          # or wrapping group starts
+      "(?:"          # or wrapping group starts
         # Infinte ending number
-        "(?P<to_infinite>",   # named capturing group
+        "(?P<to_infinite>"   # named capturing group
           "(?:999999 9|999998 9)"
         ")"
         "|"         # OR
         
         # Capture hrsz
-        "(?P<to_hrsz>",   # named capturing group
-          *hrsz_regex,
+        "(?P<to_hrsz>"   # named capturing group
+            #hrsz_regex starts,
+            "\d{4,}"          # number with at lease 4 digits
+
+            # "alátörés"
+            "(?:\/\d{1,3})"   # a slash follwed by a 1-3 digits number
+            "{0,3}?"          # zero of four times
+
+            # building and flat
+            "(?:"             # optional non-captureing group starts
+              "\/[A-Z]"       # slash followed by a single capital character
+              "(?:"           # optional non-captureing group starts
+                "\/\d{1,3}"   # slash followed by an 1-3 digit number
+              ")?"            # optional non-capturing group ends
+            ")?"              # optional non-capturing group ends          
+            #hrsz_regex ends,
         ")"
         "|"         # OR
 
@@ -98,24 +106,30 @@ regex_parts = [
             "\d+"     # number with 1 or more digit
             "-"       # dash
           ")?"        # optional group ends
-          "(?P<vegsoHazszamMulti>",         # named capturing group starts
-            *hazszam_regex,
+          "(?P<vegsoHazszamMulti>"         # named capturing group starts
+            #hazszam_regex starts
+            "\d{1,4}"      # any number with 1-4 digits (avoid matching with "/"-less hrsz)
+            "\\b"      # end of word, avoid matching first n digits of a long number
+            #hazszam_regex ends
           ")"         # capturing group ends
         ")"           # OR group ends
         "|"           # OR
 
         # Capture simple house number 
-        "(?P<vegsoHazszamSingle>",         # named capturing group starts
-          *hazszam_regex,
+        "(?P<vegsoHazszamSingle>"         # named capturing group starts
+          #hazszam_regex starts
+          "\d{1,4}"      # any number with 1-4 digits (avoid matching with "/"-less hrsz)
+          "\\b"      # end of word, avoid matching first n digits of a long number
+          #hazszam_regex ends
         ")"         # capturing group ends
       ")"             # or wrapping group ends
     ")?"           # non-capturing group end
   ")"           # non-capturing group end
-]
+)
 
-pattern = ''.join(regex_parts)
+# pattern = ''.join(regex_parts)
 #print(pattern)
-regex = rf"{pattern}"
+# regex = rf"{pattern}"
 
 def emptyOrStrip(string):
   return "" if not string else string.strip()
@@ -166,8 +180,8 @@ def getUtcaLista(soup):
   utcaListPairs = []
 
   for item in utcaList:
-    szkUtca = getUtcaNev(item).replace('Cím::  ', '')
-    szkHazszamok = getHazszamok(item).replace('Tartomány típusa::  ', '')
+    szkUtca = getUtcaNev(item)[8:]
+    szkHazszamok = getHazszamok(item)[22:]
 
     matches = re.match(regex, szkUtca)
 

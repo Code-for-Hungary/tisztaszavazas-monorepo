@@ -1,3 +1,4 @@
+# coding=utf-8
 #!/usr/bin/python3
 import re
 
@@ -28,22 +29,14 @@ def getSzavkorDetails(soup):
 	.getText()
 
 	if valasztokerulet.strip() == '-':
-		valasztokerulet_dict = {
-			"valasztokerulet": {
-				"leiras": "-",
-				"szam": None
-			}
-		}
+		leiras = "-",
+		szam = None
 	else:
 		regex = r"^.[^\d]+(\d{1,3})."
 		valasztokeruletMatches = re.match(regex, valasztokerulet)
 
-		valasztokerulet_dict =	{
-			"valasztokerulet": {
-				"leiras": valasztokerulet.strip(),
-				"szam": int(valasztokeruletMatches.group(1))	
-			}
-		}
+		leiras = valasztokerulet.strip(),
+		szam = int(valasztokeruletMatches.group(1))
 
 	# valasztokSzama
 	valasztokSzama = groupDiv \
@@ -58,13 +51,20 @@ def getSzavkorDetails(soup):
 	akadalymentes = groupDiv \
 	.select("div[class*=akadalymentes]")
 
+	try:
+		kozigEgysegNeve = telepulesNevMatches.group(1).strip()
+	except (NameError, AttributeError) as e:
+		kozigEgysegNeve = ''
 
 	return {
 		"szavazokorCime": szavazokorCime.strip(),
 		"kozigEgyseg": {
-			"kozigEgysegNeve": telepulesNevMatches.group(1).strip()
+			"kozigEgysegNeve": kozigEgysegNeve
 		},
-		**valasztokerulet_dict,
+		"valasztokerulet": {
+			"leiras": leiras,
+			"szam": szam
+		},
 		"valasztokSzama": int(valasztokSzamaMatches.group(1)),
 		"akadalymentes": bool(len(akadalymentes))
 	}

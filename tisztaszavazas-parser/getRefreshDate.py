@@ -1,3 +1,4 @@
+# coding=utf-8
 #!/usr/bin/python3
 import pytz, datetime
 import re

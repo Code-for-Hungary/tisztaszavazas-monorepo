@@ -1,12 +1,14 @@
-# https://vimeo.com/147784643
+# coding=utf-8
 #!/usr/bin/python3
+
+# https://vimeo.com/147784643
 
 import sys
 from flask import Flask, jsonify, request
 from bs4 import BeautifulSoup
 from getUtcaLista import getUtcaLista
 from getSzavkorDetails import getSzavkorDetails
-from getRefreshDate import getRefreshDate
+# from getRefreshDate import getRefreshDate
 from getSzkList import getSzkList
 
 app = Flask(__name__)
@@ -20,8 +22,8 @@ def parser():
 
 	response = {
 		"utcalista": getUtcaLista(soup),
-		"szavkorDetails": getSzavkorDetails(soup),
-		"frissitveValasztasHun": getRefreshDate(soup)
+		"szavkorDetails": getSzavkorDetails(soup)
+		# "frissitveValasztasHun": getRefreshDate(soup)
 	}
 
 	return response

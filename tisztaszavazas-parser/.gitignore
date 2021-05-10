@@ -2,4 +2,4 @@
 htmls/
 __pycache__
 env/
-parser.pyc
+*.pyc
