@@ -1,7 +1,0 @@
-node_modules/
-.monitor
-.DS_Store
-.env
-*.pyc
-htmls/backup/
-apidoc/
